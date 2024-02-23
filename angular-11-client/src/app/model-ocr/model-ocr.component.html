@@ -1,0 +1,30 @@
+<input type="file" (change)="onFileSelect($event)" #fileInput>
+<button (click)="uploadImage()" [disabled]="!imageSelected">Envoyer l'Image</button>
+
+<!-- Affichage conditionnel des résultats -->
+<div *ngIf="results">
+  <table>
+    <thead>
+    <tr>
+      <th>Numero Cin</th>
+      <th>Nom</th>
+      <th>Prénom</th>
+      <th>Nom du père</th>
+      <th>Date de naissance</th>
+      <th>Lieux de naissance</th>
+    </tr>
+    </thead>
+    <tbody>
+    <!-- Ici, je suppose que la réponse est un objet et non un tableau -->
+    <tr>
+      <td>{{ results.NumeroCIN }}</td>
+      <td>{{ results.Nom }}</td>
+      <td>{{ results.Prenom }}</td>
+      <td>{{ results.NomDuPere }}</td>
+      <td>{{ results.DateDeNaissance }}</td>
+      <td>{{ results.LieuDeNaissance }}</td>
+    </tr>
+    <!-- Si la réponse est un tableau d'objets, utilisez *ngFor pour itérer -->
+    </tbody>
+  </table>
+</div>

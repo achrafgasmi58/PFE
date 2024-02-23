@@ -1,0 +1,52 @@
+<div class="card-body">
+  <!-- Single file input for image upload -->
+  <input type="file" (change)="onFileChanged($event)" class="upload-btn" accept="image/*">
+  <div class="upload-container">
+    <select (change)="onDocumentTypeChange($event)" [(ngModel)]="selectedDocumentType" class="form-control">
+      <option value="CIN_Front">CIN Front</option>
+      <option value="CIN_Back">CIN Back</option>
+    </select>
+  </div>
+
+  <button (click)="cropImage()" class="crop-btn">Crop Image</button>
+  <!-- Display the uploaded image for cropping -->
+  <div class="canvas-container">
+    <canvas #imageCanvas
+            (mousedown)="handleMouseDown($event)"
+            (mousemove)="handleMouseMove($event)"
+            (mouseup)="handleMouseUp($event)"
+            (mouseleave)="handleMouseLeave($event)">
+    </canvas>
+  </div>
+  <!-- Display the cropped image (optional) -->
+  <div *ngIf="imageSrc">
+    <img [src]="imageSrc" style="max-width: 100%; max-height: 300px;" alt="Cropped Image">
+  </div>
+  <button (click)="onSubmit()" class="submit-btn">Submit Cropped Image</button>
+
+</div>
+
+<div class="table-responsive" *ngIf="ocrResults.length > 0">
+  <table class="table">
+    <thead class="text-primary">
+      <th>Extracted Text</th>
+      <th>Confidence Level</th>
+
+      <th>Field Name</th>
+    </thead>
+    <tbody>
+      <tr *ngFor="let result of ocrResults">
+        <td>
+          <input type="text" [(ngModel)]="result.extracted_text">
+        </td>
+        <td>{{ result.confidence_level }}</td>
+
+        <td>
+          <select (change)="onFieldSelected(result, $event)" [(ngModel)]="result.selectedField" class="form-control">
+            <option *ngFor="let field of currentFields" [value]="field">{{ field }}</option>
+          </select>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

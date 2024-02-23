@@ -1,0 +1,49 @@
+.upload-btn {
+  background-color: #FFFFFF; /* Info color */
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 0.25rem;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.upload-btn:hover {
+  background-color: #EBECF1; /* Darkened info color for hover */
+}
+
+.submit-btn {
+  background-color: #F53737; /* Success color */
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 0.25rem;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.submit-btn:hover {
+  background-color: #F9A2A4; /* Darkened success color for hover */
+}
+
+.card-body {
+  margin-top: 40px; /* Space below the header */
+}
+
+.cropper .cropper-line, .cropper .cropper-point {
+  background-color: yellow !important;
+  border-color: yellow !important;
+}
+
+.image-preview {
+  width: auto;/* Set a fixed width */
+  height: auto; /* Set a fixed height */
+  object-fit: cover; /* This will cover the area without distorting the aspect ratio */
+}
+
+/* Add this to your component's CSS */
+.canvas-container {
+  width: auto; /* Maximum width of the canvas */
+  height: auto; /* Adjust height automatically */
+  border: 1px solid #ccc; /* Optional: adds a border around the canvas */
+}
