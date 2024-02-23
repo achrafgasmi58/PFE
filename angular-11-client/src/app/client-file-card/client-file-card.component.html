@@ -1,0 +1,21 @@
+<div class="card client-card">
+  <div class="card-header">
+    Client File
+  </div>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item">Numero CIN: {{ clientData.numeroCIN }}</li>
+    <li class="list-group-item">Nom: {{ clientData.nom }}</li>
+    <li class="list-group-item">Prénom: {{ clientData.prenom }}</li>
+    <li class="list-group-item">Prénom du père: {{ clientData.prenomDuPere }}</li>
+    <li class="list-group-item">Prénom de la mère: {{ clientData.prenomDeLaMere }}</li>
+    <li class="list-group-item">Date de naissance: {{ clientData.dateDeNaissance }}</li>
+    <li class="list-group-item">Lieux de naissance: {{ clientData.lieuDeNaissance }}</li>
+    <li class="list-group-item">Profession: {{ clientData.profession }}</li>
+    <li class="list-group-item">Adresse: {{ clientData.adresse }}</li>
+    <li class="list-group-item">Date de creation: {{ clientData.dateDeCreation }}</li>
+  </ul>
+
+  <!-- ... (the rest of your component HTML) -->
+  <button (click)="saveData()">Save to Database</button>
+
+</div>

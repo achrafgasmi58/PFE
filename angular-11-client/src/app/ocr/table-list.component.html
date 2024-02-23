@@ -49,4 +49,8 @@
       </tr>
     </tbody>
   </table>
+  <!-- Add this button below your OCR results table -->
+  <button (click)="constructClientData()" class="btn btn-primary">Submit to Client Card</button>
+
+  <app-client-file-card [clientData]="clientData"></app-client-file-card>
 </div>

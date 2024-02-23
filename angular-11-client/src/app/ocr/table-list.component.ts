@@ -3,6 +3,21 @@ import { OcrService } from '../_services/ocr-service.service'; // Ensure this pa
 import { HttpClient } from '@angular/common/http';
 import { DomSanitizer, SafeUrl } from '@angular/platform-browser';
 
+
+// Add right after your imports
+interface ClientData {
+  numeroCIN?: string;
+  nom?: string;
+  prenom?: string;
+  prenomDuPere?: string;
+  prenomDeLaMere?: string;
+  nomDeLaMere?: string;
+  dateDeNaissance?: string;
+  lieuDeNaissance?: string;
+  profession?: string;
+  adresse?: string;
+  dateDeCreation?: string;
+}
 @Component({
   selector: 'app-table-list',
   templateUrl: './table-list.component.html',
@@ -22,11 +37,12 @@ export class TableListComponent implements AfterViewInit {
   imageSrc: SafeUrl | null = null;
   selectedDocumentType: string = '';
   documentTypeFields: { [key: string]: string[] } = {
-    'CIN_Front': ['Numero CIN', 'Nom', 'Prénom', 'Prénom du père', 'Date de naissance', 'Lieux de naissance'],
-    'CIN_Back': ['Nom de la mère', 'Prénom de la mère', 'Fonction', 'Adresse', 'Date de creation'],
+    'CIN_Front': ['None', 'Numero CIN', 'Nom', 'Prénom', 'Prénom du père', 'Date de naissance', 'Lieu de naissance'],
+    'CIN_Back': ['None', 'Nom de la mère', 'Prénom de la mère', 'Profession', 'Adresse', 'Date de creation'],
     // Add other document types and their fields here
   };
   currentFields: string[] = [];
+  clientData: ClientData = {};
 
   constructor(private ocrService: OcrService, private renderer: Renderer2, private sanitizer: DomSanitizer) { }
 
@@ -86,10 +102,46 @@ export class TableListComponent implements AfterViewInit {
       }
     );
   }
-  updateOcrText(index: number, newText: string): void {
-    if(index >= 0 && index < this.ocrResults.length) {
-      this.ocrResults[index].editableText = newText;
-    }
+
+
+
+// Method to construct the clientData object and populate it with OCR results
+  constructClientData(): void {
+    // Attempt to retrieve existing data from localStorage
+    let existingData = JSON.parse(localStorage.getItem('clientData') || '{}');
+
+    // Map each selectedField to its corresponding data property
+    this.ocrResults.forEach(result => {
+      const fieldName = this.getFieldName(result.selectedField);
+      if (fieldName) {
+        existingData[fieldName] = result.extracted_text;
+      }
+    });
+
+    // Update the local storage and clientData with the new values
+    localStorage.setItem('clientData', JSON.stringify(existingData));
+    this.clientData = { ...existingData };
+  }
+
+// Helper method to map the selected field to the property name
+  getFieldName(selectedField: string): string | null {
+    // Map the field names to the clientData property names
+    const fieldMap: { [key: string]: string } = {
+      'Numero CIN': 'numeroCIN',
+      'Nom': 'nom',
+      'Prénom': 'prenom',
+      'Prénom du père': 'prenomDuPere',
+      'Prénom de la mère': 'prenomDeLaMere',
+      'Nom de la mère': 'nomDeLaMere',
+      'Date de naissance': 'dateDeNaissance',
+      'Lieu de naissance': 'lieuDeNaissance',
+      'Profession': 'profession',
+      'Adresse': 'adresse',
+      'Date de creation': 'dateDeCreation',
+      // ... other mappings
+    };
+
+    return fieldMap[selectedField] || null;
   }
 
 
