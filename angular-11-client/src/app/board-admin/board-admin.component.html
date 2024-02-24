@@ -1,5 +1,28 @@
 <div class="container">
   <header class="jumbotron">
+    <h2>Admin Dashboard</h2>
     <p>{{ content }}</p>
   </header>
+
+  <div *ngIf="clientFiles">
+    <table class="table">
+      <thead>
+      <tr>
+        <th>ID</th>
+        <th>Details</th>
+        <th>Actions</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let file of clientFiles">
+        <td>{{ file.id }}</td>
+        <td>{{ file.detail }}</td>
+        <td>
+          <button (click)="editFile(file.id)" class="btn btn-primary">Edit</button>
+          <button (click)="deleteFile(file.id)" class="btn btn-danger">Delete</button>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
 </div>

@@ -19,6 +19,7 @@ import { ModelOcrService} from './_services/model-ocr.service';
 import { authInterceptorProviders } from './_helpers/auth.interceptor';
 import { ModelOcrComponent } from './model-ocr/model-ocr.component';
 import { ClientFileCardComponent } from './client-file-card/client-file-card.component';
+import { EditClientFileComponent } from './edit-client-file/edit-client-file.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { ClientFileCardComponent } from './client-file-card/client-file-card.com
     BoardUserComponent,
     TableListComponent,
     ModelOcrComponent,
-    ClientFileCardComponent
+    ClientFileCardComponent,
+    EditClientFileComponent
   ],
   imports: [
     BrowserModule,

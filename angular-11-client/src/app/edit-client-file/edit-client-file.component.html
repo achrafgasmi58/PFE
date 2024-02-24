@@ -1,0 +1,47 @@
+<form (ngSubmit)="saveClientFile()">
+  <div class="form-group">
+    <label for="numeroCIN">Numero CIN:</label>
+    <input type="text" id="numeroCIN" class="form-control" [(ngModel)]="clientFile.numeroCIN" name="numeroCIN">
+  </div>
+  <div class="form-group">
+    <label for="nom">Nom:</label>
+    <input type="text" id="nom" class="form-control" [(ngModel)]="clientFile.nom" name="nom">
+  </div>
+  <div class="form-group">
+    <label for="prenom">Prénom:</label>
+    <input type="text" id="prenom" class="form-control" [(ngModel)]="clientFile.prenom" name="prenom">
+  </div>
+  <div class="form-group">
+    <label for="prenomDuPere">Prénom du Père:</label>
+    <input type="text" id="prenomDuPere" class="form-control" [(ngModel)]="clientFile.prenomDuPere" name="prenomDuPere">
+  </div>
+  <div class="form-group">
+    <label for="prenomDeLaMere">Prénom de la Mère:</label>
+    <input type="text" id="prenomDeLaMere" class="form-control" [(ngModel)]="clientFile.prenomDeLaMere" name="prenomDeLaMere">
+  </div>
+  <div class="form-group">
+    <label for="nomDeLaMere">Nom de la Mère:</label>
+    <input type="text" id="nomDeLaMere" class="form-control" [(ngModel)]="clientFile.nomDeLaMere" name="nomDeLaMere">
+  </div>
+  <div class="form-group">
+    <label for="dateDeNaissance">Date de Naissance:</label>
+    <input type="text" id="dateDeNaissance" class="form-control" [(ngModel)]="clientFile.dateDeNaissance" name="dateDeNaissance">
+  </div>
+  <div class="form-group">
+    <label for="lieuDeNaissance">Lieu de Naissance:</label>
+    <input type="text" id="lieuDeNaissance" class="form-control" [(ngModel)]="clientFile.lieuDeNaissance" name="lieuDeNaissance">
+  </div>
+  <div class="form-group">
+    <label for="adresse">Adresse:</label>
+    <input type="text" id="adresse" class="form-control" [(ngModel)]="clientFile.adresse" name="adresse">
+  </div>
+  <div class="form-group">
+    <label for="profession">Profession:</label>
+    <input type="text" id="profession" class="form-control" [(ngModel)]="clientFile.profession" name="profession">
+  </div>
+  <div class="form-group">
+    <label for="dateDeCreation">Date de Création:</label>
+    <input type="text" id="dateDeCreation" class="form-control" [(ngModel)]="clientFile.dateDeCreation" name="dateDeCreation">
+  </div>
+  <button type="submit" class="btn btn-success">Save</button>
+</form>

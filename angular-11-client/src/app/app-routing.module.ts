@@ -10,6 +10,8 @@ import { BoardModeratorComponent } from './board-moderator/board-moderator.compo
 import { BoardAdminComponent } from './board-admin/board-admin.component';
 import { TableListComponent } from './ocr/table-list.component';
 import {ModelOcrComponent} from './model-ocr/model-ocr.component';
+import { EditClientFileComponent} from './edit-client-file/edit-client-file.component';
+import {ClientFileCardComponent} from './client-file-card/client-file-card.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -20,7 +22,9 @@ const routes: Routes = [
   { path: 'mod', component: ModelOcrComponent },
   { path: 'admin', component: BoardAdminComponent },
   { path: '', redirectTo: 'home', pathMatch: 'full' },
-  { path: 'ocr', component: TableListComponent } // Adjust as needed
+  { path: 'ocr', component: TableListComponent }, // Adjust as needed
+  { path: 'edit-client-file/:id', component: EditClientFileComponent },
+  { path: 'client-files', component: ClientFileCardComponent },
 ];
 
 @NgModule({
