@@ -4,25 +4,41 @@
     <p>{{ content }}</p>
   </header>
 
-  <div *ngIf="clientFiles">
+  <div *ngIf="clientFiles && clientFiles.length > 0">
     <table class="table">
       <thead>
       <tr>
         <th>ID</th>
-        <th>Details</th>
+        <th>Nom</th>
+        <th>Prénom</th>
+        <th>Type Personne</th> <!-- Added column for typePersonne -->
         <th>Actions</th>
       </tr>
       </thead>
       <tbody>
       <tr *ngFor="let file of clientFiles">
         <td>{{ file.id }}</td>
-        <td>{{ file.detail }}</td>
+        <td>{{ file.nom }}</td>
+        <td>{{ file.prenom }}</td>
+        <td>{{ file.typePersonne }}</td> <!-- Displaying typePersonne -->
         <td>
-          <button (click)="editFile(file.id)" class="btn btn-primary">Edit</button>
-          <button (click)="deleteFile(file.id)" class="btn btn-danger">Delete</button>
+          <button (click)="editFile(file.id!)" class="btn btn-primary">Edit</button>
+          <button (click)="deleteFile(file.id!)" class="btn btn-danger">Delete</button>
+          <button (click)="checkClient(file)" class="btn btn-warning">Check Blacklist</button>
         </td>
       </tr>
       </tbody>
+      <div *ngIf="verificationMessage">{{ verificationMessage }}</div>
+
+      <div *ngIf="blacklistDetails.length > 0">
+        <h3>Détails de la blacklist :</h3>
+        <ul>
+          <li *ngFor="let detail of blacklistDetails">
+            Taux de similitude: {{ detail.average_similarity_ratio }}%, Nom: {{ detail.nom }}, Prénom: {{ detail.prenom }}, Date de Naissance: {{ detail['date de naissance'] }}
+          </li>
+        </ul>
+      </div>
+
     </table>
   </div>
 </div>

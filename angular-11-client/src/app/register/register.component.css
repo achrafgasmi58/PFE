@@ -1,32 +1,69 @@
+/* Shared Styles for Login and Register Components */
 label {
   display: block;
   margin-top: 10px;
+  color: #082140; /* Dark blue for text */
+  font-weight: 600;
 }
 
 .card-container.card {
-  max-width: 400px !important;
-  padding: 40px 40px;
-}
-
-.card {
-  background-color: #f7f7f7;
-  padding: 20px 25px 30px;
-  margin: 0 auto 25px;
-  margin-top: 50px;
-  -moz-border-radius: 2px;
-  -webkit-border-radius: 2px;
-  border-radius: 2px;
-  -moz-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
-  -webkit-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
-  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+  max-width: 400px;
+  padding: 40px;
+  background-color: #ffffff; /* Brighter shade for a clean look */
+  margin: 5% auto; /* Adjusted for better centering */
+  border-radius: 8px; /* Softer radius for modern appearance */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Softer shadow for depth */
 }
 
 .profile-img-card {
-  width: 96px;
-  height: 96px;
-  margin: 0 auto 10px;
-  display: block;
-  -moz-border-radius: 50%;
-  -webkit-border-radius: 50%;
+  width: 120px; /* Slightly larger for better visibility */
+  height: 120px;
+  margin-bottom: 20px; /* Increased space below image */
   border-radius: 50%;
+  border: 3px solid #DF2C27;
+}
+
+/* Input fields enhancement */
+.form-control {
+  border: 1px solid #ccc; /* Subtle borders */
+  padding: 10px;
+  margin-bottom: 20px; /* Increased spacing for better layout */
+  border-radius: 5px; /* Rounded edges for modern feel */
+}
+
+.form-control:focus {
+  border-color: #DF2C27; /* Highlight focus with red */
+  box-shadow: 0 0 0 2px rgba(223, 44, 39, 0.2); /* Subtle glow effect */
+}
+
+/* Button customization for a unified look */
+.btn-primary {
+  background-color: #DF2C27; /* Use the specified red color */
+  border: none;
+  padding: 10px 15px;
+  font-size: 16px; /* Slightly larger font for readability */
+  border-radius: 5px; /* Consistent rounded edges */
+  transition: background-color 0.2s ease-in-out;
+}
+
+.btn-primary:hover {
+  background-color: #b7221e; /* Darker shade on hover for interaction feedback */
+}
+
+/* Alert styling for clear feedback */
+.alert {
+  padding: 10px;
+  border-radius: 5px;
+  margin-top: 20px;
+  font-weight: 500;
+}
+
+.alert-danger, .alert-warning {
+  background-color: #f8d7da;
+  color: #721c24; /* Subdued color for error/warning messages */
+}
+
+.alert-success {
+  background-color: #d4edda;
+  color: #155724; /* Soothing green for success messages */
 }

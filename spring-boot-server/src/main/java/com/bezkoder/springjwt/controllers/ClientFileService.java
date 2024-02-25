@@ -45,7 +45,9 @@ public class ClientFileService {
         clientFile.setDateDeCreation(clientFileDetails.getDateDeCreation());
         clientFile.setAdresse(clientFileDetails.getAdresse());
         clientFile.setProfession(clientFileDetails.getProfession());
-        // ... set other fields
+        // Set typePersonne
+        clientFile.setTypePersonne(clientFileDetails.getTypePersonne());
+        // ... set other fields as needed
         return clientFileRepository.save(clientFile);
     }
 

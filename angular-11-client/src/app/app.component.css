@@ -1,0 +1,45 @@
+/* General App Styles */
+#app {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #333;
+  background-color: #f4f4f4;
+}
+
+/* Navbar Customization */
+.navbar {
+  background-color: #082140; /* Dark blue background */
+  border-bottom: 2px solid #DF2C27; /* Red accent border */
+}
+
+.navbar-brand {
+  color: #DF2C27 !important; /* Red brand color */
+  font-weight: bold;
+}
+
+.navbar-nav .nav-link {
+  color: #ffffff !important; /* White text for contrast */
+  transition: color 0.3s ease-in-out;
+}
+
+.navbar-nav .nav-link:hover, .navbar-nav .nav-link:focus {
+  color: #DF2C27 !important; /* Red text on hover/focus */
+  background-color: transparent;
+}
+
+/* Active Link Styling */
+.nav-item.active .nav-link {
+  color: #DF2C27 !important; /* Red for active links */
+  font-weight: bold;
+}
+
+/* Container Styling */
+.container {
+  padding-top: 20px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .navbar-nav .nav-item {
+    border-top: 1px solid #DF2C27; /* Red top border for collapsed menu items */
+  }
+}

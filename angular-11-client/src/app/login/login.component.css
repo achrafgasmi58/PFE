@@ -1,32 +1,77 @@
+/* General Form and Card Improvements */
 label {
   display: block;
-  margin-top: 10px;
+  margin-bottom: 5px;
+  color: #082140; /* Dark blue color for text */
+  font-weight: bold;
 }
 
 .card-container.card {
   max-width: 400px !important;
   padding: 40px 40px;
+  border: 1px solid #ccc; /* Slight border */
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Softer shadow */
+  border-radius: 8px; /* More pronounced border-radius */
 }
 
 .card {
-  background-color: #f7f7f7;
+  background-color: #ffffff; /* Brighter background */
   padding: 20px 25px 30px;
   margin: 0 auto 25px;
   margin-top: 50px;
-  -moz-border-radius: 2px;
-  -webkit-border-radius: 2px;
-  border-radius: 2px;
-  -moz-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
-  -webkit-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
-  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+  border-radius: 8px;
 }
 
+/* Enhancements for Profile Image */
 .profile-img-card {
   width: 96px;
   height: 96px;
-  margin: 0 auto 10px;
-  display: block;
-  -moz-border-radius: 50%;
-  -webkit-border-radius: 50%;
+  margin: 0 auto 20px;
   border-radius: 50%;
+  border: 3px solid #DF2C27; /* Red border around profile image */
+}
+
+/* Form Input Enhancements */
+.form-control {
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075); /* Subtle inner shadow */
+  padding: 10px 15px;
+}
+
+.form-control:focus {
+  border-color: #DF2C27; /* Red border on focus */
+  box-shadow: 0 0 8px rgba(223, 44, 39, 0.6); /* Glow effect on focus */
+}
+
+/* Button Styling */
+.btn-primary {
+  background-color: #082140; /* Dark blue background */
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  font-weight: bold;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+}
+
+.btn-primary:hover {
+  background-color: #DF2C27; /* Red background on hover */
+}
+
+/* Alert Styling */
+.alert {
+  margin-top: 20px;
+  border-radius: 5px;
+  font-weight: bold;
+}
+
+.alert-danger {
+  background-color: #DF2C27; /* Red background for danger alerts */
+  color: #ffffff;
+}
+
+.alert-success {
+  background-color: #4CAF50; /* Green background for success alerts */
+  color: #ffffff;
 }

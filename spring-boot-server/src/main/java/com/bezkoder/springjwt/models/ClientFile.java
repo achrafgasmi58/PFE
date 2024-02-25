@@ -1,5 +1,6 @@
 package com.bezkoder.springjwt.models;
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
 import java.io.Serializable;
 
 @Entity
@@ -12,7 +13,7 @@ public class ClientFile implements Serializable {
     public ClientFile() {
     }
 
-    public ClientFile(Long id, String numeroCIN, String nom, String prenom, String prenomDuPere, String prenomDeLaMere, String nomDeLaMere, String dateDeNaissance, String lieuDeNaissance, String profession, String adresse, String dateDeCreation) {
+    public ClientFile(Long id, String numeroCIN, String nom, String prenom, String prenomDuPere, String prenomDeLaMere, String nomDeLaMere, String dateDeNaissance, String lieuDeNaissance, String profession, String adresse, String dateDeCreation, String typePersonne) {
         this.id = id;
         this.numeroCIN = numeroCIN;
         this.nom = nom;
@@ -25,6 +26,7 @@ public class ClientFile implements Serializable {
         this.profession = profession;
         this.adresse = adresse;
         this.dateDeCreation = dateDeCreation;
+        this.typePersonne = typePersonne;
     }
 
     @Column(name = "numeroCIN")
@@ -59,6 +61,10 @@ public class ClientFile implements Serializable {
 
     @Column(name = "dateDeCreation")
     private String dateDeCreation;
+
+    @Column(name = "typePersonne")
+    @NotBlank(message = "Type Personne is mandatory")
+    private String typePersonne;
 
     public Long getId() {
         return id;
@@ -156,4 +162,11 @@ public class ClientFile implements Serializable {
         this.dateDeCreation = dateDeCreation;
     }
 
+    public String getTypePersonne() {
+        return typePersonne;
+    }
+
+    public void setTypePersonne(String typePersonne) {
+        this.typePersonne = typePersonne;
+    }
 }

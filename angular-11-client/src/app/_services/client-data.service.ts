@@ -2,6 +2,9 @@
 
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { ClientFile } from '../models/client-file.model';
+import {Observable} from 'rxjs'; // Adjust the import path as needed
+
 
 @Injectable({
   providedIn: 'root'
@@ -11,7 +14,8 @@ export class ClientDataService {
 
   constructor(private http: HttpClient) {}
 
-  saveClientData(clientData: any) {
+  saveClientData(clientData: ClientFile): Observable<any> {
     return this.http.post(`${this.apiUrl}/client-files/`, clientData);
   }
+
 }

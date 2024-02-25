@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { UserService } from '../_services/user.service';
 import { ClientFileService} from '../_services/client-file.service';
 import { Router } from '@angular/router';
+import { CheckClientService } from '../_services/check-client.service'; // Assurez-vous que le chemin d'importation est correct
+import { ClientFile } from '../models/client-file.model';
 
 @Component({
   selector: 'app-board-admin',
@@ -10,9 +12,10 @@ import { Router } from '@angular/router';
 })
 export class BoardAdminComponent implements OnInit {
   content?: string;
-  clientFiles: any;
-
-  constructor(private userService: UserService, private clientFileService: ClientFileService, private router: Router) { }
+  clientFiles: ClientFile[] = [];
+  verificationMessage: string = '';
+  blacklistDetails: any[] = []; // Adjust the type as needed
+  constructor(private userService: UserService, private clientFileService: ClientFileService, private router: Router, private checkClientService: CheckClientService) { }
 
 
   ngOnInit(): void {
@@ -54,5 +57,26 @@ export class BoardAdminComponent implements OnInit {
       }
     });
   }
+  // Méthode pour vérifier un client
+  checkClient(clientFile: ClientFile): void {
+    this.checkClientService.filterData(clientFile.prenom, clientFile.nom, clientFile.dateDeNaissance, clientFile.typePersonne)
+      .subscribe({
+        next: (response) => {
+          if (response.length === 0) {
+            this.verificationMessage = "La personne n'est pas blacklistée."; // Message for clean person
+            this.blacklistDetails = []; // Clear details
+          } else {
+            this.verificationMessage = "Attention: la personne semble être blacklistée."; // Message for blacklisted person
+            this.blacklistDetails = response; // Show details
+          }
+        },
+        error: (error) => {
+          console.error('Error during verification', error);
+          this.verificationMessage = 'Erreur lors de la vérification.'; // Error message
+          this.blacklistDetails = []; // Clear details on error
+        }
+      });
+  }
+
 
 }
